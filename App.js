@@ -14,14 +14,11 @@ import {
   View,
   Text,
   StatusBar,
+  FlatList
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
+  Colors
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
@@ -32,7 +29,6 @@ const App: () => React$Node = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
@@ -40,31 +36,19 @@ const App: () => React$Node = () => {
           )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
+              <Text style={styles.sectionTitle}>Promoções</Text>
+              <FlatList
+                data={[
+                  {key: '1',name: '[Amazon] Vanish kit 1 Pink 1,5L + 1 Crystal White 1,5L por R$ 20,68 - FG prime'},
+                  {key: '2',name: '[ZATTINI] Tênis Nike Court Royale Masculino - Azul - R$ 103,99'},
+                  {key: '3',name: '[Direct Go] Promoção de lançamento: Canais Básicos + 5 anos grátis de HBO por R$ 59,90/mês'},
+                  {key: '4',name: '[MAGALU] Galaxy Note 10+ R$3.149,10à vista OU 2.991,00 CLIENTE OURO NO APP'},
+                  {key: '5',name: '[MAGALU] NITRO 5 GTX1650, 8gb, 128gb SSD+1tb, i5 9300H AN515-54-58CL Endless R$4844,05av'},
+                  {key: '6',name: '[Hype Games] PSN 12 meses 111,90'},
+                ]}
+                renderItem={({item}) => <Text style={styles.item}>{item.name}</Text>}
+              />
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -109,6 +93,16 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
+  container: {
+    flex: 1,
+    paddingTop: 22
+   },
+   item: {
+     padding: 10,
+     fontSize: 18,
+     height: 44,
+   },
+ 
 });
 
 export default App;
